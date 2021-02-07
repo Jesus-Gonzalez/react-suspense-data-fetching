@@ -1,0 +1,14 @@
+.entry {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid lightgray;
+  margin: 10px;
+}
+
+.currency, .value {
+  padding: 12px 5px;
+}
+
+.currency {
+  border-right: 1px solid lightgray;
+}

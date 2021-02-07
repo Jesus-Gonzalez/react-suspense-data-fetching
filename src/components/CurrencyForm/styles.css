@@ -1,0 +1,10 @@
+.wrapper {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.label {
+  margin-bottom: 5px;
+}

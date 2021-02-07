@@ -1,18 +1,18 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
+import './styles.css';
+
 const Currency = (props) => {
   const { currency, value } = props;
 
   return (
     <div className="entry">
       <div className="currency">
-        <span>Currency:</span>
-        <span>{currency}</span>
+        <strong>{currency}</strong>
       </div>
 
       <div className="value">
-        <span>Value:</span>
         <span>{value}</span>
       </div>
     </div>

@@ -1,14 +1,15 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { PropTypes } from 'prop-types';
+
+import './styles.css';
 
 const CurrencyForm = (props) => {
   const { handleChangeBase, rates } = props;
 
   return (
-    <form>
-      <label htmlFor="base">Base Currency</label>
-      <select id="base" onChange={handleChangeBase}>
+    <form className="wrapper">
+      <strong className="label">Base Currency</strong>
+      <select onChange={handleChangeBase}>
         <option>
           Select
         </option>
