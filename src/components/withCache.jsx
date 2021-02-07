@@ -4,6 +4,6 @@ import { SimpleCache } from 'simple-cache-provider';
 
 export default (Component) => (props) => (
   <SimpleCache.Consumer>
-    {(cache) => <Component {...props} cache={cache} />}
+    {(cache) => <Component cache={cache} {...props} />}
   </SimpleCache.Consumer>
 );

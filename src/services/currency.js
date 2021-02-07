@@ -4,16 +4,16 @@ const delay = (timeout) => new Promise((resolve) => {
   setTimeout(resolve, timeout);
 });
 
-const currency = createResource(async () => {
+const currency = createResource(async (base) => {
   const url = new URL('https://api.exchangeratesapi.io/latest');
 
   // if (symbols) {
   //   url.searchParams.set('symbols', symbols.join(','));
   // }
 
-  // if (base) {
-  //   url.searchParams.set('base', base);
-  // }
+  if (base) {
+    url.searchParams.set('base', base);
+  }
 
   await delay(2500);
 

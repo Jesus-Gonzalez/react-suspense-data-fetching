@@ -1,45 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { CurrencyService } from '../services';
 
-import withCache from './withCache';
+import { Currency, CurrencyForm, withCache } from './__components';
 
 const CurrencyList = withCache((props) => {
   const { cache } = props;
 
-  // const [base, setBase] = useState('EUR');
+  const [base, setBase] = useState('EUR');
 
-  // useEffect(() => {
-  //   CurrencyService.get({ base });
-  // }, [base]);
+  const handleChangeBase = (event) => {
+    setBase(event.target.value);
+  };
 
-  // const handleBaseChange = (event) => {
-  //   setBase(event.target.value);
-  // };
-
-  // eslint-disable-next-line no-debugger
-  debugger;
-  const service = CurrencyService.currency.read(cache);
+  const service = CurrencyService.currency.read(cache, base);
 
   return (
     <>
-      <form>
-        <span>base</span>
-        <select>
-          {Object.keys(service.rates).map((currency) => (
-            <option value={currency}>
-              {currency}
-            </option>
-          ))}
-        </select>
-      </form>
+      <CurrencyForm
+        handleChangeBase={handleChangeBase}
+        rates={service.rates}
+      />
       {Object.entries(service.rates).map(([key, value]) => (
-        <h2>
-          <span>Currency:</span>
-          <span>{key}</span>
-          <span>Value:</span>
-          <span>{value}</span>
-        </h2>
+        <Currency
+          key={key}
+          currency={key}
+          value={value}
+        />
       ))}
     </>
   );
