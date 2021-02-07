@@ -18,11 +18,17 @@ const CurrencyList = withCache((props) => {
   const service = CurrencyService.currency.read(cache, base);
 
   return (
-    <>
+    <div className="page-wrapper">
+      <h1>Exchange Rates</h1>
       <CurrencyForm
         handleChangeBase={handleChangeBase}
         rates={service.rates}
       />
+      <h2>
+        Base:
+        {' '}
+        {base}
+      </h2>
       <div className="currency-list">
         {Object.entries(service.rates).map(([key, value]) => (
           <Currency
@@ -32,7 +38,7 @@ const CurrencyList = withCache((props) => {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 });
 

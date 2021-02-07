@@ -7,7 +7,7 @@ const CurrencyForm = (props) => {
   const { handleChangeBase, rates } = props;
 
   return (
-    <form className="wrapper">
+    <form className="form-wrapper">
       <strong className="label">Base Currency</strong>
       <select onChange={handleChangeBase}>
         <option>
